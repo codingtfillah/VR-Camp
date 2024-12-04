@@ -1,1 +1,3 @@
-# VR-Camp-5785
+# VR-Camp
+
+Brought to you by Daniel David and Eli Robinson
