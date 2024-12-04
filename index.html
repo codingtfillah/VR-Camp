@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>5th Grade Camp - 2023</title>
+        <script src="https://unpkg.com/aframe@1.5.0/dist/aframe-v1.5.0.min.js"></script>
+        <script src="js/highlight.js"></script>
+    </head>
+    <body>
+        <a-scene
+            background="color: #87CEEB"
+            environment
+            cursor="rayOrigin: mouse; fuse: false"
+            raycaster="objects: .raycastable"
+            renderer="sortObjects: true"
+        >
+            <a-assets>
+                <a-mixin
+                    id="frame"
+                    geometry="primitive: plane; width: 0.43; height: 0.83"
+                    material="color: white; shader: flat"
+                    animation__scale="property: scale; to: 1.05 1.05 1.05; dur: 50; startEvents: mouseenter"
+                    animation__scale_reverse="property: scale; to: 1 1 1; dur: 50; startEvents: mouseleave"
+                ></a-mixin>
+                <a-mixin
+                    id="poster"
+                    geometry="primitive: plane; width: 0.4; height: 0.8"
+                    material="color: white; shader: flat"
+                    material="shader: flat"
+                    position="0 0 0.005"
+                ></a-mixin>
+
+                <!-- Images -->
+                <img id="mishkanImg" src="img/Mishkan.JPG" />
+                <img id="northImg" src="img/North.JPG" />
+                <img id="southImg" src="img/South.JPG" />
+                <img id="eastImg" src="img/East.JPG" />
+                <img id="westImg" src="img/West.JPG" />
+                <img id="leviimImg" src="img/Leviim.JPG" />
+
+                <img id="eastPoster" src="poster/East Poster.png" />
+                <img id="leviimPoster" src="poster/Leviim Poster.png" />
+                <img id="westPoster" src="poster/West Poster.png" />
+                <img id="northPoster" src="poster/North Poster.png" />
+                <img id="southPoster" src="poster/South Poster.png" />
+                <img id="mishkanPoster" src="poster/Mishkan Poster.png" />
+
+                <!-- Audio -->
+                <audio id="eastAudio" src="audio/East-Camps5784.mp3"/>
+                <audio id="westAudio" src="audio/West-Camps5784.mp3"/>
+                <audio id="northAudio" src="audio/North-Camps5784.mp3"/>
+                <audio id="southAudio" src="audio/South-Camps5784.mp3"/>
+                <audio id="leviimAudio" src="audio/Levi-Camps5784.mp3"/>
+                <audio id="mishkanAudio" src="audio/Mishkan-Camps5784.mp3" />
+            </a-assets>
+
+            <a-entity
+                id="background"
+                position="0 0 0"
+                geometry="primitive: sphere; radius: 10.0"
+                material="color: sky-blue; side: back; shader: flat"
+                scale="0.001 0.001 0.001"
+                visible="false"
+                class="raycastable"
+            >
+            </a-entity>
+
+            <!-- Hand controls -->
+            <a-entity
+                id="rightHand"
+                laser-controls="hand: right"
+                raycaster="objects: .raycastable"
+                line="color: #118A7E"
+            ></a-entity>
+
+            <a-entity id="ui" position="0 1.6 -2.5" menu highlight>
+                <a-entity
+                    id="leviim"
+                    position="-0.5 -0.45 0"
+                    mixin="frame"
+                    class="raycastable menu-button"
+                    ><a-entity
+                        mixin="poster"
+                        material="src: #leviimPoster"
+                    ></a-entity
+                ></a-entity>
+                <a-entity
+                    id="mishkan"
+                    position="0 -0.45 0"
+                    mixin="frame"
+                    class="raycastable menu-button"
+                    ><a-entity
+                        mixin="poster"
+                        material="src: #mishkanPoster"
+                    ></a-entity
+                ></a-entity>
+                <a-entity
+                    id="north"
+                    position="-0.5 0.45 0"
+                    mixin="frame"
+                    class="raycastable menu-button"
+                    ><a-entity
+                        mixin="poster"
+                        material="src: #northPoster"
+                    ></a-entity
+                ></a-entity>
+                <a-entity
+                    id="east"
+                    position="0 0.45 0"
+                    mixin="frame"
+                    class="raycastable menu-button"
+                    ><a-entity
+                        mixin="poster"
+                        material="src: #eastPoster"
+                    ></a-entity
+                ></a-entity>
+                <a-entity
+                    id="south"
+                    position="0.5 -0.45 0"
+                    mixin="frame"
+                    class="raycastable menu-button"
+                    ><a-entity
+                        mixin="poster"
+                        material="src: #southPoster"
+                    ></a-entity
+                ></a-entity>
+                <a-entity
+                    id="west"
+                    position="0.5 0.45 0"
+                    mixin="frame"
+                    class="raycastable menu-button"
+                    ><a-entity
+                        mixin="poster"
+                        material="src: #westPoster"
+                    ></a-entity
+                ></a-entity>
+            </a-entity>
+
+            <a-sphere
+                id="img"
+                visible="false"
+                material="side:back"
+                position="0 1.6 0"
+                radius="2"
+                rotation="0 90 0"
+            ></a-sphere>
+
+            <a-entity
+                camera="active: true"
+                look-controls
+                wasd-controls
+                position="0 1.6 0"
+            >
+            </a-entity>
+        </a-scene>
+        <script src="js/camp.js"></script>
+    </body>
+</html>
