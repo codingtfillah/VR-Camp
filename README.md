@@ -1,5 +1,5 @@
 # VR Camp
 
-Doesn't currently function but I know it can
+Detailed instructions to follow...
 
 by DD & ER
