@@ -1,3 +1,5 @@
-# VR-Camp
+# VR Camp
 
-Brought to you by Daniel David and Eli Robinson
+Doesn't currently function but I know it can
+
+by DD & ER
